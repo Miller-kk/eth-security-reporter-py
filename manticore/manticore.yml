@@ -1,0 +1,4 @@
+cli:
+  argv: [testset/itu.sol]
+  workspace: manticore
+workspace: {dir: result_data}

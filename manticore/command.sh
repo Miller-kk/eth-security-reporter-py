@@ -1,0 +1,1 @@
+/usr/local/bin/manticore --workspace manticore --workspace.dir result_data testset/itu.sol
