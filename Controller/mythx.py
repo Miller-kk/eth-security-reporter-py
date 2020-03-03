@@ -8,7 +8,7 @@ class mythx:
     
     def __init__(self, filePath):
         try:
-            subprocess.check_output(["mythx", "--access-token", self.token,"--format", "json", "analyze", filePath])
+            subprocess.check_output(["mythx","--access-token", self.token,"--format", "json", "analyze","--solc-version", "0.5.0", filePath])
             self.state = True
         except:
             self.state = False

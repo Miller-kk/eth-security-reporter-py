@@ -16,6 +16,7 @@ import smartcheck as sc
 import slitherParser as sParser
 import mythxParser as mParser
 import securifyParser as seParser
+import PrettyPrint as pp
 
 
 
@@ -28,10 +29,27 @@ def detectionIntegration(filePath):
     smartcheck = sc.smartcheck(filePath)
     
 def parsingIntegration():
-    slither_result = sParser.slitherParser()
-    mythx_result = mParser.mythxParser()
-    securify_result = seParser.securifyParser()
+    try:
+        slither_result = sParser.slitherParser()
+    except:
+        slither_result = ""
+    try:
+        mythx_result = mParser.mythxParser()
+    except:
+        mythx_result = ""
+    try:
+        securify_result = seParser.securifyParser()
+    except:
+        securify_result =""
     print(securify_result)
+    return [slither_result,mythx_result,securify_result]
+    
 
-integration(sys.argv[1])
-#print(sys.argv[1])
+detectionIntegration(sys.argv[1])
+infoArray = parsingIntegration()
+infoTools =["slither","mythx","securify"]
+
+for tool in infoTools:
+    pp.prettyPrint(tool, infoArray)
+
+
