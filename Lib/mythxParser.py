@@ -14,4 +14,3 @@ def mythxParser():
                 result.append(newJson)
                 newJson = {}
         return result
-        

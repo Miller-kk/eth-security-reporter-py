@@ -16,7 +16,8 @@ import smartcheck as sc
 import slitherParser as sParser
 import mythxParser as mParser
 import securifyParser as seParser
-import PrettyPrint as pp
+import manticoreParser as mtParser
+import prettyPrint as pp
 
 
 
@@ -27,6 +28,16 @@ def detectionIntegration(filePath):
     securify = sf.securify(filePath)
     slither = sl.slither(filePath)
     smartcheck = sc.smartcheck(filePath)
+    return [manticore,myth,mythx,securify,slither,smartcheck]
+
+def jsonIntegration():
+    detectionJson = detectionIntegration(sys.argv[1])
+    naming  = ["manticore", "mythril", "mythx", "securify", "slither", "smartcheck"]
+    totalJson = {}
+    for idx, val in enumerate(detectionJson):
+        totalJson[detectionJson[idx]] = val
+    return totalJson
+    
     
 def parsingIntegration():
     try:
@@ -40,16 +51,23 @@ def parsingIntegration():
     try:
         securify_result = seParser.securifyParser()
     except:
-        securify_result =""
-    print(securify_result)
-    return [slither_result,mythx_result,securify_result]
+        securify_result = ""
+    try:
+        manticore_result = mtParser.manticoreParser()
+    except:
+        manticore_result = ""
+    return [slither_result,mythx_result,securify_result,manticore_result]
     
 
 detectionIntegration(sys.argv[1])
 infoArray = parsingIntegration()
-infoTools =["slither","mythx","securify"]
+infoTools =["slither","mythx","securify","manticore"]
 
-for tool in infoTools:
-    pp.prettyPrint(tool, infoArray)
+totalData = jsonIntegration()
+print(totalData)
+
+
+for idx, val in enumerate(infoTools):
+    pp.prettyPrint(val, infoArray[idx])
 
 

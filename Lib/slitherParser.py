@@ -9,6 +9,7 @@ def slitherParser():
             newJson["name"] = data["check"]
             newJson["description"] = data["description"]
             newJson["impact"] = data["impact"]
+            newJson["lines"] = []
             result.append(newJson)
             newJson = {}
         return result
