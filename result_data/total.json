@@ -1,0 +1,72 @@
+{
+    'manticore': [{
+        'name': 'erc20-interface',
+        'description': 'inlow (testset/itu.sol#2-16) has incorrect ERC20 function interface:inlow.transfer(address,uint256) (testset/itu.sol#6-10)\n',
+        'impact': 'Medium',
+        'lines': []
+    }, {
+        'name': 'locked-ether',
+        'description': 'Contract locking ether found in :\n\tContract inlow (testset/itu.sol#2-16) has payable functions:\n\t - inlow.fallback() (testset/itu.sol#12-14)\n\tBut does not have a function to withdraw the ether\n',
+        'impact': 'Medium',
+        'lines': []
+    }, {
+        'name': 'solc-version',
+        'description': 'Pragma version^0.4.24 (testset/itu.sol#1) allows old versions\n',
+        'impact': 'Informational',
+        'lines': []
+    }, {
+        'name': 'naming-convention',
+        'description': 'Contract inlow (testset/itu.sol#2-16) is not in CapWords\n',
+        'impact': 'Informational',
+        'lines': []
+    }, {
+        'name': 'naming-convention',
+        'description': 'Parameter inlow.transfer(address,uint256)._to (testset/itu.sol#6) is not in mixedCase\n',
+        'impact': 'Informational',
+        'lines': []
+    }, {
+        'name': 'naming-convention',
+        'description': 'Parameter inlow.transfer(address,uint256)._value (testset/itu.sol#6) is not in mixedCase\n',
+        'impact': 'Informational',
+        'lines': []
+    }, {
+        'name': 'external-function',
+        'description': 'transfer(address,uint256) should be declared external:\n\t- inlow.transfer(address,uint256) (testset/itu.sol#6-10)\n',
+        'impact': 'Optimization',
+        'lines': []
+    }],
+    'mythril': '',
+    'mythx': [{
+        'name': 'MissingInputValidation',
+        'description': 'MissingInputValidation',
+        'impact': '',
+        'lines': [2, 4]
+    }, {
+        'name': 'UnrestrictedWrite',
+        'description': 'UnrestrictedWrite',
+        'impact': '',
+        'lines': [7]
+    }],
+    'securify': [{
+        'name': ' Potentially reading uninitialized storage ',
+        'description': '    8  balanceOf[_to] += _value',
+        'impact': '',
+        'lines': '8'
+    }, {
+        'name': ' Potentially reading uninitialized storage ',
+        'description': '    3  mapping (address => uint256) public balanceOf',
+        'impact': '',
+        'lines': '3'
+    }, {
+        'name': ' Unsigned integer overflow at ADD instruction ',
+        'description': '    8  balanceOf[_to] += _value',
+        'impact': '',
+        'lines': '8'
+    }],
+    'slither': [{
+        'name': 'SOLIDITY_UINT_CANT_BE_NEGATIVE',
+        'impact': '2',
+        'lines': '6',
+        'description': 'balanceOf[msg.sender]-_value>=0'
+    }]
+}

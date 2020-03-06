@@ -1,3 +1,5 @@
+from json2html import *
+
 def prettyPrint(tool, infoArray):
     print("\n\n########################################"+tool+" Result########################################\n")
     if(infoArray == ''):
@@ -10,3 +12,12 @@ def prettyPrint(tool, infoArray):
             print("impact: " + info["impact"])
             for line in info["lines"]:
                 print("lines: " + str(line))
+
+def stringTofile(output,tool):
+    f = open("/eth-security-reporter-py/result_data/"+tool, "w")
+    f.write(output)
+    f.close()
+
+def createTable(resultArray):
+    tableHtml = json2html.convert(json = resultArray)
+    stringTofile(createTable,"total.html")

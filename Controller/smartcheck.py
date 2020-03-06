@@ -10,4 +10,3 @@ class smartcheck:
             self.state = True
         except:
             self.state = False
-    
