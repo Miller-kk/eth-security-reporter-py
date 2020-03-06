@@ -1,6 +1,6 @@
 import sys
-sys.path.insert(0, "/eth-security-reporter-py/Controller")
-sys.path.append("/eth-security-reporter-py/Lib")
+sys.path.insert(0, "./Controller")
+sys.path.append("./Lib")
 
 ## 기본적인 탐지 툴들을 클래스 별로 관리하기 위한 모듈들
 ## Author: Millerkk
@@ -64,4 +64,4 @@ def run(fileName):
     for idx, val in enumerate(infoTools):
         pp.prettyPrint(val, infoArray[idx])
 
-#run(sys.argv[1])
+run(sys.argv[1])

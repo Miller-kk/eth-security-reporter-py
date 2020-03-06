@@ -4,7 +4,7 @@ import prettyPrint as pp
 def smartcheckParser():
     result = []
     newJson = {}
-    readData = open('/eth-security-reporter-py/result_data/smartcheck').read().split("\n")
+    readData = open('./result_data/smartcheck').read().split("\n")
     for data in readData:
         if("ruleId" in data):
             ruleParse = data.split(" ")

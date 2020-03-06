@@ -14,7 +14,7 @@ def prettyPrint(tool, infoArray):
                 print("lines: " + str(line))
 
 def stringTofile(output,tool):
-    f = open("/eth-security-reporter-py/result_data/"+tool, "w")
+    f = open("./result_data/"+tool, "w")
     f.write(output)
     f.close()
 

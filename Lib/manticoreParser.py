@@ -1,7 +1,7 @@
 def manticoreParser():
     result = []
     newJson = {}
-    result_data = open('/eth-security-reporter-py/manticore/global.findings').read().split("\n")
+    result_data = open('./manticore/global.findings').read().split("\n")
     for data in result_data:
         print(data)
         if(data == ""):
