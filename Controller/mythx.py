@@ -2,12 +2,12 @@ import subprocess
 
 class mythx:
     state = False
-    token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI5MTcwMDJlZi1lMTYyLTRkNzMtODQ4Ny1hODkyM2ZjYTc4MDIiLCJpYXQiOjE1ODIxMTc5OTEuNzMsImlzcyI6Ik15dGhYIEFQSSIsImV4cCI6MTg5NzY5Mzk5MS43MjQsInVzZXJJZCI6IjVjZWIwMTQ5MmY4YWRmMDAxOGY1YzcxNyJ9.L-xvd9rxqGsmVCWOMNAlKh_NGfjk7go3s0hG4ksvsDU"
+    token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJmNzNlZDFlNC0yZmJiLTQ3YTYtYjM5NS1iNGY4NDc0YmY0YjYiLCJpYXQiOjE1ODQzNjIzMDEuMzE3LCJpc3MiOiJNeXRoWCBBUEkiLCJleHAiOjE4OTk5MzgzMDEuMzExLCJ1c2VySWQiOiI1ZTZmNzMzMTYyN2MzMzAwMTFhYTFlYWQifQ.zh4eT30xc2JrUMoIt5KtKMIgxNOABsj7MZrmyTw64vQ"
     output = ""
     
     def __init__(self, filePath):
         try:
-            subprocess.check_output(["mythx","--api-key", self.token,"--format", "json", "analyze","--solc-version", "0.5.0", filePath])
+            self.output =subprocess.check_output(["mythx","--api-key", self.token,"--format", "json", "analyze","--solc-version", "0.4.24", filePath])
             self.state = True
         except:
             self.state = False
