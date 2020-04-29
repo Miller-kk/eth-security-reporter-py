@@ -3,7 +3,6 @@ def manticoreParser():
     newJson = {}
     result_data = open('./manticore/global.findings').read().split("\n")
     for data in result_data:
-        print(data)
         if(data == ""):
             newJson = {}
         else:

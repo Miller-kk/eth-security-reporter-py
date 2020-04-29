@@ -34,7 +34,7 @@ def detectionIntegration(filePath):
     smartcheck = sc.smartcheck(filePath)
     smartcheck_result = smartcheck.output.decode("utf-8")
     pp.stringTofile(smartcheck_result, "smartcheck")
-    
+
     return [manticore, myth, mythx, securify, slither, smartcheck]
 
 
@@ -44,17 +44,16 @@ def jsonIntegration(detectionJson):
     for idx, val in enumerate(detectionJson):
         totalJson[naming[idx]] = val
     return totalJson
-    
-    
+
+
 def parsingIntegration():
         slither_result = sParser.slitherParser()
         mythx_result = mParser.mythxParser()
-        #mythx_result = ""
         securify_result = seParser.securifyParser()
         manticore_result = mtParser.manticoreParser()
         smartcheck_result = scParser.smartcheckParser()
         return [slither_result, mythx_result, securify_result, manticore_result, smartcheck_result]
-    
+
 def run(fileName):
     init.initFiles()
     detectionIntegration(fileName)

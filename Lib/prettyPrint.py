@@ -1,3 +1,4 @@
+import json
 from json2html import *
 
 def prettyPrint(tool, infoArray):
@@ -14,10 +15,15 @@ def prettyPrint(tool, infoArray):
                 print("lines: " + str(line))
 
 def stringTofile(output,tool):
-    f = open("./result_data/"+tool, "w")
-    f.write(output)
-    f.close()
+    f =open("./result_data/"+tool, 'w')
+
+    if(type(output) == bytes):
+        f.write(output[:-1].decode())
+    else:
+        f.write(str(output))
+
 
 def createTable(resultArray):
     tableHtml = json2html.convert(json = resultArray)
-    stringTofile(createTable,"total.html")
+    print(tableHtml)
+    stringTofile(resultArray,"total.html")

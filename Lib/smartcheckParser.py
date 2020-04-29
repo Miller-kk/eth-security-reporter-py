@@ -20,5 +20,4 @@ def smartcheckParser():
             contentParse = data.split(" ")
             newJson["description"] = contentParse[len(contentParse) -1]
             result.append(newJson)
-    print(result)
     return result
